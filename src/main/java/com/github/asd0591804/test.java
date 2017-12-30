@@ -1,14 +1,17 @@
 package com.github.asd0591804;
 
 public class test {
-    public int  Student(int num){
 
-        num=num%2;
+    public int t(int num){
 
-        if(num==0){
-            System.out.println("Man");
+        int re = num +1;
 
-        }
-        return num;
+        return re;
+
+
     }
+
+
+
+
 }
