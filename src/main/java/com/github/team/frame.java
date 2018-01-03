@@ -1,4 +1,6 @@
 package com.github.team;
+import com.github.ych861031.setSchedule;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -26,25 +28,27 @@ public class frame {
 
 
         /*set Button*/
-        Button btn1 = new Button("排入上班課行程");
+        JButton btn1 = new JButton("排入上班課行程");
         btn1.setBounds(110,200,150,25);
         jframe.add(btn1);
 
-        Button btn2 = new Button("自動規劃娛樂活動");
+        JButton btn2 = new JButton("自動規劃娛樂活動");
         btn2.setBounds(110,250,150,25);
         jframe.add(btn2);
 
-        Button btn3 = new Button("鬧鐘");
+        JButton btn3 = new JButton("鬧鐘");
         btn3.setBounds(110,300,150,25);
         jframe.add(btn3);
 
-        Button btn4 = new Button("在線專家");
+        JButton btn4 = new JButton("在線專家");
         btn4.setBounds(110,350,150,25);
         jframe.add(btn4);
 
-        Button btn5 = new Button("排入其他待辦事項");
+        JButton btn5 = new JButton("排入其他待辦事項");
         btn5.setBounds(110,400,150,25);
         jframe.add(btn5);
+
+        btn1.addActionListener(new setSchedule());
 
 
 
@@ -53,7 +57,6 @@ public class frame {
         jframe.setVisible(true);
 
     }
-
 
 
 
