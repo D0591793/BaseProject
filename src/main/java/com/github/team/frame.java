@@ -13,8 +13,9 @@ public class frame {
 
         jframe.setLayout(null);
 
-        Label label = new Label("時間管理");
-        label.setBounds(157,100,100,50);
+        JLabel label = new JLabel("時間管理");
+        label.setBounds(125,100,200,50);
+        label.setFont(new Font("", Font.BOLD, 32));
         jframe.add(label);
 
 
