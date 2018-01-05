@@ -19,9 +19,10 @@ public class setSchedule implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        /*hide frame1*/
         jframe.setVisible(false);
 
-
+        /*add frame2*/
         JFrame jframe2 = new JFrame();
         jframe2.setSize(375,640);
         jframe2.setLocation(jframe.getLocation());
@@ -34,12 +35,14 @@ public class setSchedule implements ActionListener {
         label.setFont(new Font("", Font.BOLD, 32));
         jframe2.add(label);
 
+        /*set button*/
         JButton btn = new JButton("返回");
-
         btn.setBounds(30,20,30,20);
         jframe2.add(btn);
 
         btn.addActionListener(new frame(jframe,jframe2));
+
+
 
         jframe2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe2.setVisible(true);

@@ -9,7 +9,6 @@ import java.util.logging.Level;
 public class frame implements ActionListener {
     private static JFrame jframe;
     private static JFrame jframe2;
-    private static JButton btn1;
 
     public frame(JFrame jframe,JFrame jframe2) {
         this.jframe = jframe;
@@ -34,7 +33,7 @@ public class frame implements ActionListener {
         jframe.add(label);
 
         /*set button*/
-        btn1 = new JButton("排入上班課行程");
+        JButton btn1 = new JButton("排入上班課行程");
         btn1.setBounds(110,200,150,25);
         jframe.add(btn1);
 
@@ -54,8 +53,12 @@ public class frame implements ActionListener {
         btn5.setBounds(110,400,150,25);
         jframe.add(btn5);
 
+        /*button action remake by yourself */
         btn1.addActionListener(new setSchedule(jframe));
         btn2.addActionListener(new setSchedule(jframe));
+        btn3.addActionListener(new setSchedule(jframe));
+        btn4.addActionListener(new setSchedule(jframe));
+        btn5.addActionListener(new setSchedule(jframe));
 
 
         /*!!!!!important!!!!*/
@@ -67,8 +70,13 @@ public class frame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        /*close frame2*/
         jframe2.dispose();
+
+        /*get frame2 x,y and set frame1 x,y*/
         jframe.setLocation(jframe2.getLocation());
+
+        /*let frame1 can see*/
         jframe.setVisible(true);
 
     }
