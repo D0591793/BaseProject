@@ -6,29 +6,35 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.logging.Level;
 
-public class frame {
+public class frame implements ActionListener {
+    private static JFrame jframe;
+    private static JFrame jframe2;
+    private static JButton btn1;
+
+    public frame(JFrame jframe,JFrame jframe2) {
+        this.jframe = jframe;
+        this.jframe2 = jframe2;
+    }
+
     public static void main(String[] args){
 
         /*set frame*/
-        JFrame jframe = new JFrame();
+        jframe = new JFrame();
         jframe.setSize(375,640);
         jframe.setLocationRelativeTo(null);
-
 
         /*get contentpane and set background*/
         jframe.getContentPane().setBackground(Color.white);
         jframe.setLayout(null);
 
-
-        /*set Label*/
+        /*set title*/
         JLabel label = new JLabel("時間管理");
         label.setBounds(125,100,200,50);
-        label.setFont(new Font("", Font.BOLD, 32));
+        label.setFont(new Font("",Font.BOLD, 32));
         jframe.add(label);
 
-
-        /*set Button*/
-        JButton btn1 = new JButton("排入上班課行程");
+        /*set button*/
+        btn1 = new JButton("排入上班課行程");
         btn1.setBounds(110,200,150,25);
         jframe.add(btn1);
 
@@ -48,8 +54,8 @@ public class frame {
         btn5.setBounds(110,400,150,25);
         jframe.add(btn5);
 
-        btn1.addActionListener(new setSchedule());
-
+        btn1.addActionListener(new setSchedule(jframe));
+        btn2.addActionListener(new setSchedule(jframe));
 
 
         /*!!!!!important!!!!*/
@@ -59,6 +65,12 @@ public class frame {
     }
 
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        jframe2.dispose();
+        jframe.setLocation(jframe2.getLocation());
+        jframe.setVisible(true);
 
+    }
 }
 
