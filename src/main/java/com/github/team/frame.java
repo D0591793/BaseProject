@@ -4,7 +4,7 @@ import com.github.ych861031.setSchedule;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.logging.Level;
+
 
 public class frame implements ActionListener {
     private static JFrame jframe;
