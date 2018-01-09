@@ -1,9 +1,8 @@
 package com.github.asd0591804;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class testTest {
 
@@ -16,6 +15,10 @@ public class testTest {
     }
     public void testtest2() {
         assertEquals(3,a.t(2));
+    }
+
+    public void test3(){
+        assertEquals(1,a.covertest(1));
     }
 
 }

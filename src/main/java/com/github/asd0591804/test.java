@@ -11,6 +11,10 @@ public class test {
 
     }
 
+    public int covertest(int a){
+        return a;
+    }
+
 
 
 
