@@ -17,6 +17,7 @@ public class testTest {
         assertEquals(3,a.t(2));
     }
 
+    @Test
     public void test3(){
         assertEquals(1,a.covertest(1));
     }
