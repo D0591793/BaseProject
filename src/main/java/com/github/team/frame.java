@@ -72,6 +72,7 @@ public class frame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         /*close frame2*/
         jframe2.dispose();
+        System.out.println(e);
 
         /*get frame2 x,y and set frame1 x,y*/
         jframe.setLocation(jframe2.getLocation());
@@ -79,6 +80,11 @@ public class frame implements ActionListener {
         /*let frame1 can see*/
         jframe.setVisible(true);
 
+    }
+
+
+    public int covergeTest(int a){
+        return 1;
     }
 }
 

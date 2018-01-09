@@ -43,10 +43,8 @@ public class setSchedule implements ActionListener {
         btn.addActionListener(new frame(jframe,jframe2));
 
 
-
         jframe2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jframe2.setVisible(true);
-
 
     }
 
