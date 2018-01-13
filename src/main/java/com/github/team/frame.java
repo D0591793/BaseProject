@@ -55,7 +55,9 @@ public class frame implements ActionListener {
         btn5.setBounds(110,400,150,25);
         jframe.add(btn5);
 
-        /*button action remake by yourself */
+
+
+        /*new 的後面改成自己的class*/
         btn1.addActionListener(new setSchedule(jframe));
         btn2.addActionListener(new setSchedule(jframe));
         btn3.addActionListener(new setSchedule(jframe));
