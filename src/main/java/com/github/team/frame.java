@@ -1,4 +1,5 @@
 package com.github.team;
+import com.github.ych861031.checkSchedule;
 import com.github.ych861031.setSchedule;
 
 import javax.swing.*;
@@ -9,6 +10,7 @@ import java.awt.event.*;
 public class frame implements ActionListener {
     private static JFrame jframe;
     private static JFrame jframe2;
+    public static int index = 0;
 
     public frame(JFrame jframe,JFrame jframe2) {
         this.jframe = jframe;
@@ -28,7 +30,7 @@ public class frame implements ActionListener {
 
         /*set title*/
         JLabel label = new JLabel("時間管理");
-        label.setBounds(125,100,200,50);
+        label.setBounds(120,100,200,50);
         label.setFont(new Font("",Font.BOLD, 32));
         jframe.add(label);
 
@@ -82,6 +84,118 @@ public class frame implements ActionListener {
 
     }
 
+    public static int[] timeArray = new int[100];
+
+    public static void setScheduleDateTime(int time){
+        System.out.println(index);
+        timeArray[frame.index++] = time;
+        System.out.println(time);
+        timeArray[index] = -1;
+    }
+
+    public static String[] textArray = new String[100];
+    public static void setScheduleText(String text){
+        int index2 = index-1;
+        textArray[index2] = text;
+        System.out.println( textArray[index2]);
+    }
+    public static String[] timeSArray = new String[100];
+    public static void setStartTime(String time){
+        int index2 = index-1;
+        timeSArray[index2] = time;
+        System.out.print( timeSArray[index2] + "~");
+    }
+
+    public static String[] timeEArray = new String[100];
+    public static boolean setEndTime(String time){
+        int index2 = index-1;
+        timeEArray[index2] = time;
+        System.out.println( timeEArray[index2]);
+        boolean check = checkSchedule.check(index2);
+        return check;
+    }
+
+    public static String[] typeArray = new String[100];
+    public static void setType(String type){
+        int intdex2 = index-1;
+        typeArray[intdex2] = type;
+        System.out.println(type);
+    }
+
+    public static void repeatSchedule(){
+        int date = frame.timeArray[index-1]%100;
+        int year = frame.timeArray[index-1]/10000;
+        int month = frame.timeArray[index-1]/100-(year*100);
+
+        if (year%4!=0){
+            if (month == 2){
+                if (date+7 >= 28){
+                    month++;
+                    date = date+7-28;
+                }else {
+                    date+=7;
+                }
+            }else if(month == 4||month==6||month==9 ||month==11){
+                if (date+7 >= 30){
+                    month++;
+                    date = date+7-30;
+                }else{
+                    date+=7;
+                }
+            }else{
+                if (date+7 >= 31){
+                    month++;
+                    date = date+7-31;
+                }else{
+                    date+=7;
+                }
+            }
+        }else{
+            if (month == 2){
+                if (date+7 >= 29){
+                    month++;
+                    date = date+7-29;
+                }else {
+                    date+=7;
+                }
+            }else if(month == 4||month==6||month==9 ||month==11){
+                if (date+7 >= 30){
+                    month++;
+                    date = date+7-30;
+                }else{
+                    date+=7;
+                }
+            }else{
+                if (date+7 >= 31){
+                    month++;
+                    date = date+7-31;
+                }else{
+                    date+=7;
+                }
+            }
+        }
+        if (month>12){
+            month-=12;
+            year++;
+        }
+        String time1 = Integer.toString(month);
+        if (month<10){
+            time1 = "0"+ time1;
+        }
+        String time2 = Integer.toString(date);
+        if (date<10){
+            time2 = "0"+ time2;
+        }
+        String time = Integer.toString(year);
+        time = time + time1 +time2;
+        timeArray[frame.index] = Integer.parseInt(time);
+        timeSArray[frame.index] = frame.timeSArray[index-1];
+        timeEArray[frame.index] = frame.timeEArray[index-1];
+        textArray[frame.index] = frame.textArray[index-1];
+        typeArray[frame.index] = frame.typeArray[index-1];
+        timeArray[++index] = -1;
+
+    }
 
     public int covergeTest(int a){
         return 1;
