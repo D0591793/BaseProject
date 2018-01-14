@@ -1,7 +1,9 @@
 package com.github.team;
 import com.github.D0591793.addAnotherSchedule;
+import com.github.jay87406.setOnlineExpert;
 import com.github.ych861031.checkSchedule;
 import com.github.ych861031.setSchedule;
+
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,7 +64,7 @@ public class frame implements ActionListener {
         btn1.addActionListener(new setSchedule(jframe));
         btn2.addActionListener(new setSchedule(jframe));
         btn3.addActionListener(new setSchedule(jframe));
-        btn4.addActionListener(new setSchedule(jframe));
+        btn4.addActionListener(new setOnlineExpert(jframe));
         btn5.addActionListener(new addAnotherSchedule(jframe));
 
 
