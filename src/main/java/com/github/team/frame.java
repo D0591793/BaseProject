@@ -1,4 +1,5 @@
 package com.github.team;
+import com.github.D0591793.addAnotherSchedule;
 import com.github.ych861031.checkSchedule;
 import com.github.ych861031.setSchedule;
 
@@ -62,7 +63,7 @@ public class frame implements ActionListener {
         btn2.addActionListener(new setSchedule(jframe));
         btn3.addActionListener(new setSchedule(jframe));
         btn4.addActionListener(new setSchedule(jframe));
-        btn5.addActionListener(new setSchedule(jframe));
+        btn5.addActionListener(new addAnotherSchedule(jframe));
 
 
         /*!!!!!important!!!!*/
