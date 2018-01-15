@@ -11,124 +11,10 @@ import java.awt.event.ActionListener;
 
 public class addAnotherSchedule implements ActionListener{
     private JFrame jFrame;
-    private static JFrame jframe;
-    public static int index = 0;
     public addAnotherSchedule(JFrame jFrame){
         this.jFrame = jFrame;
     }
 
-
-    public static int[] timeArray = new int[100];
-    public static void setScheduleDateTime(int time){
-        System.out.println(index);
-        timeArray[frame.index++] = time;
-        System.out.println(time);
-        timeArray[index] = -1;
-    }
-
-    public static String[] textArray = new String[100];
-    public static void setScheduleText(String text){
-        int index2 = index-1;
-        textArray[index2] = text;
-        System.out.println( textArray[index2]);
-    }
-    public static String[] timeSArray = new String[100];
-    public static void setStartTime(String time){
-        int index2 = index-1;
-        timeSArray[index2] = time;
-        System.out.print( timeSArray[index2] + "~");
-    }
-
-    public static String[] timeEArray = new String[100];
-    public static boolean setEndTime(String time){
-        int index2 = index-1;
-        timeEArray[index2] = time;
-        System.out.println( timeEArray[index2]);
-        boolean check = checkSchedule.check(index2);
-        return check;
-    }
-
-    public static String[] typeArray = new String[100];
-    public static void setType(String type){
-        int intdex2 = index-1;
-        typeArray[intdex2] = type;
-        System.out.println(type);
-    }
-
-    public static void repeatSchedule(){
-        int date = frame.timeArray[index-1]%100;
-        int year = frame.timeArray[index-1]/10000;
-        int month = frame.timeArray[index-1]/100-(year*100);
-
-        if (year%4!=0){
-            if (month == 2){
-                if (date+7 >= 28){
-                    month++;
-                    date = date+7-28;
-                }else {
-                    date+=7;
-                }
-            }else if(month == 4||month==6||month==9 ||month==11){
-                if (date+7 >= 30){
-                    month++;
-                    date = date+7-30;
-                }else{
-                    date+=7;
-                }
-            }else{
-                if (date+7 >= 31){
-                    month++;
-                    date = date+7-31;
-                }else{
-                    date+=7;
-                }
-            }
-        }else{
-            if (month == 2){
-                if (date+7 >= 29){
-                    month++;
-                    date = date+7-29;
-                }else {
-                    date+=7;
-                }
-            }else if(month == 4||month==6||month==9 ||month==11){
-                if (date+7 >= 30){
-                    month++;
-                    date = date+7-30;
-                }else{
-                    date+=7;
-                }
-            }else{
-                if (date+7 >= 31){
-                    month++;
-                    date = date+7-31;
-                }else{
-                    date+=7;
-                }
-            }
-        }
-        if (month>12){
-            month-=12;
-            year++;
-        }
-        String time1 = Integer.toString(month);
-        if (month<10){
-            time1 = "0"+ time1;
-        }
-        String time2 = Integer.toString(date);
-        if (date<10){
-            time2 = "0"+ time2;
-        }
-        String time = Integer.toString(year);
-        time = time + time1 +time2;
-        timeArray[frame.index] = Integer.parseInt(time);
-        timeSArray[frame.index] = frame.timeSArray[index-1];
-        timeEArray[frame.index] = frame.timeEArray[index-1];
-        textArray[frame.index] = frame.textArray[index-1];
-        typeArray[frame.index] = frame.typeArray[index-1];
-        timeArray[++index] = -1;
-
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -366,7 +252,7 @@ public class addAnotherSchedule implements ActionListener{
                 frame.setStartTime(timeS);
                 boolean check = frame.setEndTime(timeE);
                 frame.setScheduleText(jTextField.getText());
-                frame.setType("代辦事項");
+                frame.setType("待辦事項");
 
 
                 if (check == false || frame.index >= 24) {
@@ -388,21 +274,38 @@ public class addAnotherSchedule implements ActionListener{
                         notice.getContentPane().setBackground(Color.WHITE);
                         notice.setLayout(null);
                         JLabel label = new JLabel("重複時間,是否要取消此行程?");
-                        label.setBounds(50, 0, 200, 40);
+                        label.setBounds(10, 0, 200, 20);
                         label.setFont(new Font("", Font.BOLD, 14));
                         notice.add(label);
                         notice.setVisible(true);
 
-                        jframe = new JFrame();
-                        jframe.setSize(375,640);
-                        jframe.setLocationRelativeTo(null);
+
                         JButton btn6 = new JButton("是");
-                        btn6.setBounds(155,200,30,60);
-                        jframe.add(btn6);
+                        btn6.setBounds(20,30,60,20);
+                        notice.add(btn6);
+                        btn6.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                notice.setVisible(false);
+                            }
+                        });
 
                         JButton btn7 = new JButton("否");
-                        btn7.setBounds(155,200,30,60);
-                        jframe.add(btn7);
+                        btn7.setBounds(90,30,60,20);
+                        notice.add(btn7);
+                        btn7.addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                notice.setVisible(false);
+                                frame.timeArray[frame.index] = Integer.parseInt(timeDate);
+                                frame.textArray[frame.index] = jTextField.getText();
+                                frame.timeSArray[frame.index] = timeS;
+                                frame.timeEArray[frame.index] = timeE;
+                                frame.typeArray[frame.index] = "待辦事項";
+                                frame.index++;
+                            }
+                        });
+
                     }
                 } else {
                     JFrame notice = new JFrame("Notice");
@@ -437,10 +340,6 @@ public class addAnotherSchedule implements ActionListener{
                     notice.add(jLabel5);
 
 
-
-
-
-
                     JButton btn = new JButton("顯示最終顯示最終行程表");
                     btn.setBounds(20,50,200,30);
 
@@ -460,18 +359,7 @@ public class addAnotherSchedule implements ActionListener{
             }
         });
 
-                //這個只是示範
-                JButton delete = new JButton("delete");
-                delete.setBounds(260, 10, 80, 30);
-                jframe2.add(delete);
 
-                //下面是偵測這顆按鈕 他要做的事要在裡面寫
-                delete.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        //這裡
-                    }
-                });
 
 
                 jframe2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//案關閉全部關掉
