@@ -365,6 +365,7 @@ public class addAnotherSchedule implements ActionListener{
                 frame.setStartTime(timeS);
                 boolean check = frame.setEndTime(timeE);
                 frame.setScheduleText(jTextField.getText());
+                frame.setType("代辦事項");
 
 
                 if (check == false || frame.index >= 24) {
