@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 
 public class temp implements ActionListener {
     private JFrame jFrame;
@@ -44,21 +45,6 @@ public class temp implements ActionListener {
         btn.addActionListener(new frame(jFrame,jframe2));//跟主頁傳過來的方法一樣
 
 
-
-
-
-        //這個只是示範
-        JButton delete = new JButton("delete");
-        delete.setBounds(260,10,80,30);
-        jframe2.add(delete);
-
-        //下面是偵測這顆按鈕 他要做的事要在裡面寫
-        delete.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //這裡
-            }
-        });
 
         JButton open = new JButton("查看Schedule");
         open.setBounds(20,60,120,30);
@@ -117,12 +103,38 @@ public class temp implements ActionListener {
         jframe2.add(timeEMCombobox);
 
 
+
+
         JButton confirm = new JButton("確認");
         confirm.setBounds(155,225,60,30);
         jframe2.add(confirm);
         confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                String a = timeEHCombobox.getSelectedItem().toString();//這個可以取得時間只是他是String 所以記得轉成int 才可以算
+                int b = Integer.parseInt(a);//這樣就是int了
+
+                //frame.setScheduleDateTime();//設定日期 可是我的一定要有日期 所以我這邊幫你用當下日期
+                String Date = Integer.toString(Calendar.DATE);
+                String Month = Integer.toString(Calendar.MONTH);
+                String Year = Integer.toString(Calendar.YEAR);
+
+                String CAL = Year + Month + Date;
+                frame.setScheduleDateTime(Integer.parseInt(CAL));//這是設定日期 你不要改
+
+                //你要做的是把選的時間取出來 就是第一行那個然後傳到你的freetime 可以寫static 就可以從freetime 呼叫
+
+
+                //可以把第一格+第二格 就是開始時間
+                frame.setStartTime("/*這裏面放開始時間*/");//存進去的時候要是String 如果可以最好把1這種得改成01 因為前面有轉成int要自己寫if加上去 我的class有寫
+               //結束時間一樣的方法
+                frame.setEndTime("/*這裏面放結束時間*/");
+                frame.setType("娛樂");//設定類型
+
+
+
+
                 freetime.print();
             }
         });

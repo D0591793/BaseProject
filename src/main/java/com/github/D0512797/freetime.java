@@ -25,6 +25,35 @@ public class freetime {
         label.setFont(new Font("", Font.BOLD, 32));
         jFrame.add(label);
 
+        //這邊你寫temp.     然後就可以取道你剛剛在那邊算的值
+
+        /*
+                加設你是以分鐘為單位
+                if(time>60){
+                     JLabel label11 = new JLabel("推薦1");
+                    label11.setBounds(120,0,200,50);
+                     label11.setFont(new Font("", Font.BOLD, 32));
+                       jFrame.add(label11);
+
+                        JLabel label11 = new JLabel("推薦2");
+                    label12.setBounds(120,0,200,50);
+                     label12.setFont(new Font("", Font.BOLD, 32));
+                       jFrame.add(label12);
+                       這樣就可以看時間來顯示要推薦什麼來顯示
+
+                       旁邊的按鈕也要移上來喔
+                }
+
+                if(time > 70){
+                    同上
+                }
+
+
+
+
+                */
+
+        /*我覺得這個太難了哈哈*/
 //        JLabel labe2 = new JLabel("1.放一首新歌");
 //        labe2.setBounds(20,80,200,25);
 //        labe2.setFont(new Font("", Font.BOLD, 22));
@@ -63,6 +92,18 @@ public class freetime {
         JButton addfreetime1 = new JButton("排入行程");
         addfreetime1.setBounds(180,120,100,25);
         jFrame.add(addfreetime1);
+
+        //這樣寫就可以偵測這顆按鈕
+        addfreetime1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //因為時間前面就設定了
+                //這顆按鈕只要設定標題
+                frame.setScheduleText("/*打你要加的標題*/");
+            }
+        });
+
+
 
         JLabel labe3 = new JLabel("2.逛街");
         labe3.setBounds(20,160,200,25);
