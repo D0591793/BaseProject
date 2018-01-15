@@ -1,6 +1,7 @@
 package com.github.D0512797;
 
 import com.github.team.frame;
+import com.github.ych861031.printSchedule;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,8 +28,8 @@ public class temp implements ActionListener {
         jframe2.setLayout(null);//用座標排版
 
         /*set Label*/
-        JLabel label = new JLabel("自動");//標題
-        label.setBounds(105,0,200,50);//座標 長寬
+        JLabel label = new JLabel("我好無聊");//標題
+        label.setBounds(125,0,200,50);//座標 長寬
         label.setFont(new Font("", Font.BOLD, 20));//字型
         jframe2.add(label);//加入畫面中
 
@@ -58,6 +59,89 @@ public class temp implements ActionListener {
                 //這裡
             }
         });
+
+        JButton open = new JButton("查看Schedule");
+        open.setBounds(20,60,120,30);
+        jframe2.add(open);
+        open.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                printSchedule.print();
+            }
+        });
+
+        JLabel label1 = new JLabel("今天有空的時間:");
+        label1.setBounds(20,90,120,120);
+        label1.setFont(new Font("",Font.BOLD,14));
+        jframe2.add(label1);
+
+        JLabel label2 = new JLabel(":");
+        label2.setBounds(123,180,10,20);
+        label2.setFont(new Font("",Font.BOLD,14));
+        jframe2.add(label2);
+
+        JLabel label3 = new JLabel("~");
+        label3.setBounds(190,180,10,20);
+        label3.setFont(new Font("",Font.BOLD,14));
+        jframe2.add(label3);
+
+        JLabel label4 = new JLabel(":");
+        label4.setBounds(263,180,10,20);
+        label4.setFont(new Font("",Font.BOLD,14));
+        jframe2.add(label4);
+
+
+
+        String[] timeH = new String[24];
+        for (int i =0;i<24;i++){
+            timeH[i] = Integer.toString(i);
+        }
+        String[] timeM = new String[60];
+        for (int i =0;i<60;i++){
+            timeM[i] = Integer.toString(i);
+        }
+
+        JComboBox timeHCombobox = new JComboBox(timeH);
+        JComboBox timeMCombobox = new JComboBox(timeM);
+        timeHCombobox.setBounds(60,180,60,20);
+        timeMCombobox.setBounds(130,180,60,20);
+
+        JComboBox timeEHCombobox = new JComboBox(timeH);
+        JComboBox timeEMCombobox = new JComboBox(timeM);
+        timeEHCombobox.setBounds(200,180,60,20);
+        timeEMCombobox.setBounds(270,180,60,20);
+
+        jframe2.add(timeHCombobox);
+        jframe2.add(timeMCombobox);
+        jframe2.add(timeEHCombobox);
+        jframe2.add(timeEMCombobox);
+
+
+        JButton confirm = new JButton("確認");
+        confirm.setBounds(155,225,60,30);
+        jframe2.add(confirm);
+        confirm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                freetime.print();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
