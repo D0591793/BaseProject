@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 
 public class addAnotherSchedule implements ActionListener{
     private JFrame jFrame;
+    private static JFrame jframe;
     public static int index = 0;
     public addAnotherSchedule(JFrame jFrame){
         this.jFrame = jFrame;
@@ -386,15 +387,26 @@ public class addAnotherSchedule implements ActionListener{
                         notice.setLocationRelativeTo(null);
                         notice.getContentPane().setBackground(Color.WHITE);
                         notice.setLayout(null);
-                        JLabel label = new JLabel("重複時間,請重新填寫");
+                        JLabel label = new JLabel("重複時間,是否要取消此行程?");
                         label.setBounds(50, 0, 200, 40);
                         label.setFont(new Font("", Font.BOLD, 14));
                         notice.add(label);
                         notice.setVisible(true);
+
+                        jframe = new JFrame();
+                        jframe.setSize(375,640);
+                        jframe.setLocationRelativeTo(null);
+                        JButton btn6 = new JButton("是");
+                        btn6.setBounds(155,200,30,60);
+                        jframe.add(btn6);
+
+                        JButton btn7 = new JButton("否");
+                        btn7.setBounds(155,200,30,60);
+                        jframe.add(btn7);
                     }
                 } else {
                     JFrame notice = new JFrame("Notice");
-                    notice.setSize(250, 150);
+                    notice.setSize(300, 150);
                     notice.setLocationRelativeTo(null);
                     notice.getContentPane().setBackground(Color.WHITE);
                     notice.setLayout(null);
