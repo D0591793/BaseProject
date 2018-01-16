@@ -6,6 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class test implements ActionListener {
     private JFrame jFrame;
@@ -13,6 +15,20 @@ public class test implements ActionListener {
         this.jFrame = jFrame;
     }
 
+    /*時間刷新*/
+    private void setTimer(JLabel time){
+        final JLabel varTime = time;
+        Timer timeAction = new Timer(1000, new ActionListener() {
+
+            public void actionPerformed(ActionEvent e) {
+                long timemillis = System.currentTimeMillis();
+                //转换日期显示格式
+                SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                varTime.setText(df.format(new Date(timemillis)));
+            }
+        });
+        timeAction.start();
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -26,20 +42,43 @@ public class test implements ActionListener {
         jframe2.setLayout(null);//用座標排版
 
         /*set Label*/
-        JLabel label = new JLabel("Clock");//標題
-        label.setBounds(105,0,200,50);//座標 長寬
+        JLabel label = new JLabel("鬧鐘");//標題
+        label.setBounds(135,0,200,50);//座標 長寬
         label.setFont(new Font("", Font.BOLD, 20));//字型
         jframe2.add(label);//加入畫面中
 
 
 
         /*set button*/
-        JButton btn = new JButton("返回");//按鈕物件
-        btn.setBounds(20,10,60,30);
+        JButton btn = new JButton("back");//按鈕物件
+        btn.setBounds(20,10,80,30);
         jframe2.add(btn);
 
         btn.addActionListener(new frame(jFrame,jframe2));//跟主頁傳過來的方法一樣
 
+        JLabel now = new JLabel("現在時間:");
+        now.setBounds(50,30,100,50);
+        now.setFont(new Font("", Font.BOLD, 18));
+        jframe2.add(now);
+
+        JLabel timelabel = new JLabel();//時間
+        timelabel.setBounds(135,30,250,50);//座標 長寬
+        timelabel.setFont(new Font("", Font.BOLD, 18));//字型
+        jframe2.add(timelabel);
+        this.setTimer(timelabel);
+
+
+        JButton settime = new JButton("設置");
+        settime.setBounds(135,80,80,30);
+        jframe2.add(settime);
+        settime.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                com.github.asd0591804.settime.timesetting();
+
+            }
+        });
 
 
 
