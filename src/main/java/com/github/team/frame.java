@@ -143,14 +143,14 @@ public class frame implements ActionListener {
                     date+=7;
                 }
             }else if(month == 4||month==6||month==9 ||month==11){
-                if (date+7 >= 30){
+                if (date+7 > 30){
                     month++;
                     date = date+7-30;
                 }else{
                     date+=7;
                 }
             }else{
-                if (date+7 >= 31){
+                if (date+7 > 31){
                     month++;
                     date = date+7-31;
                 }else{

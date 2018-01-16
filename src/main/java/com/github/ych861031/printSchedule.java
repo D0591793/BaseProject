@@ -54,7 +54,7 @@ public class printSchedule {
 
             jLabels4[i]=new JLabel(Integer.toString(i+1));
             jLabels4[i].setFont(new Font("",Font.BOLD,14));
-            jLabels4[i].setBounds(10,25*i+60,10,20);
+            jLabels4[i].setBounds(10,25*i+60,20,20);
             jFrame.add(jLabels4[i]);
 
             jLabels5[i]=new JLabel("~");

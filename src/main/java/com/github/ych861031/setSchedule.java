@@ -252,7 +252,6 @@ public class setSchedule implements ActionListener {
                 boolean check = frame.setEndTime(timeE);
                 frame.setScheduleText(jTextField.getText());
 
-
                 if (check == false||frame.index>=24){
                     if (frame.index>=24){
                         JFrame notice = new JFrame("Notice");
