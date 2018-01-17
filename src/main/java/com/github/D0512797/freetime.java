@@ -1,12 +1,14 @@
 package com.github.D0512797;
 
 import com.github.team.frame;
+import com.github.ych861031.getCalender;
 import com.github.ych861031.printSchedule;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 
 public class freetime {
 
@@ -25,121 +27,257 @@ public class freetime {
         label.setFont(new Font("", Font.BOLD, 32));
         jFrame.add(label);
 
-        //這邊你寫temp.     然後就可以取道你剛剛在那邊算的值
+        JLabel label3 = new JLabel(Integer.toString(temp.freetimes)+"分鐘");
+        label3.setBounds(120,53,200,50);
+        label3.setFont(new Font("", Font.BOLD, 16));
+        jFrame.add(label3);
 
-        /*
-                加設你是以分鐘為單位
-                if(time>60){
-                     JLabel label11 = new JLabel("推薦1");
-                    label11.setBounds(120,0,200,50);
-                     label11.setFont(new Font("", Font.BOLD, 32));
-                       jFrame.add(label11);
 
-                        JLabel label11 = new JLabel("推薦2");
-                    label12.setBounds(120,0,200,50);
-                     label12.setFont(new Font("", Font.BOLD, 32));
-                       jFrame.add(label12);
-                       這樣就可以看時間來顯示要推薦什麼來顯示
 
-                       旁邊的按鈕也要移上來喔
+
+
+
+
+        int i =0;
+        String[] array = new String[10];
+        if(temp.freetimes < 10)
+        {
+            JLabel labe21 = new JLabel("你的時間太少了啦!");
+            labe21.setBounds(90,110,200,35);
+            labe21.setFont(new Font("",Font.BOLD,20));
+            jFrame.add(labe21);
+
+            JLabel labe22 = new JLabel("時間要大於10分鐘");
+            labe22.setBounds(110,150,200,35);
+            labe22.setFont(new Font("",Font.BOLD,14));
+            jFrame.add(labe22);
+
+        }
+        else if(temp.freetimes >= 10)
+        {
+            JLabel labe14 = new JLabel("挑一個喜歡的吧!");
+            labe14.setBounds(90,110,200,25);
+            labe14.setFont(new Font("", Font.BOLD, 20));
+            jFrame.add(labe14);
+        }
+        if(temp.freetimes>=10) {
+                array[i++] = "看一個笑話";
+                array[i++] = "放一首新歌";
+            if (temp.freetimes>=30){
+                array[i++] = "玩小遊戲";
+                array[i++] = "播短片";
+                if (temp.freetimes>=60){
+                    array[i++] ="吃美食";
+                    array[i++] ="打籃球";
+                    array[i++] ="小睡";
+                    if(temp.freetimes>=120) {
+                        array[i++] ="看電影";
+                        array[i++] ="逛街";
+                        array[i++] ="附近的景點";
+
+                    }
+
                 }
 
-                if(time > 70){
-                    同上
+            }
+        }
+
+        JLabel[] a =new JLabel[10];
+        JButton[] b =new JButton[10];
+
+        for (int j=0;j<i;j++){
+            a[j] = new JLabel(Integer.toString(j+1)+". "+array[j]);
+            a[j].setBounds(20,j*40+160,200,30);
+            a[j].setFont(new Font("", Font.BOLD, 20));
+            jFrame.add(a[j]);
+
+            b[j] = new JButton("排入行程");
+            b[j].setBounds(180,j*40+160,100,25);
+            jFrame.add(b[j]);
+
+        }
+        if(i > 0) {
+            b[0].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    //frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(20180101);
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+
+
+                    frame.setScheduleText("看一個笑話");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+
                 }
+            });
+        }
 
+        if(i > 1) {
+            b[1].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
 
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("放一首新歌");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
 
+                }
+            });
+        }
 
-                */
+        if(i > 2) {
+            b[2].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
 
-        /*我覺得這個太難了哈哈*/
-//        JLabel labe2 = new JLabel("1.放一首新歌");
-//        labe2.setBounds(20,80,200,25);
-//        labe2.setFont(new Font("", Font.BOLD, 22));
-//        jFrame.add(labe2);
-//
-//        JLabel labe3 = new JLabel("2.看新聞");
-//        labe3.setBounds(20,120,200,25);
-//        labe3.setFont(new Font("", Font.BOLD, 22));
-//        jFrame.add(labe3);
-//
-//        JLabel labe4 = new JLabel("3.看一個笑話");
-//        labe4.setBounds(20,160,200,25);
-//        labe4.setFont(new Font("", Font.BOLD, 22));
-//        jFrame.add(labe4);
-//
-//        JLabel labe5 = new JLabel("4.播短片");
-//        labe5.setBounds(20,200,200,25);
-//        labe5.setFont(new Font("", Font.BOLD, 22));
-//        jFrame.add(labe5);
-//
-//        JLabel labe6 = new JLabel("5.玩小遊戲");
-//        labe6.setBounds(20,240,200,25);
-//        labe6.setFont(new Font("", Font.BOLD, 22));
-//        jFrame.add(labe6);
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("玩小遊戲");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+
+                }
+            });
+        }
+
+        if(i > 3 ) {
+            b[3].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("播短片");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+
+                }
+            });
+        }
+
+        if(i > 4){
+            b[4].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("吃美食");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+
+                }
+            });
+        }
+        if(i > 5) {
+
+            b[5].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("打籃球");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+
+                }
+            });
+        }
+        if(i > 6) {
+            b[6].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("小睡");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+
+                }
+            });
+        }
+        if(i > 7) {
+            b[7].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("看電影");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+
+                }
+            });
+        }
+        if(i > 8) {
+            b[8].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("逛街");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+
+                }
+            });
+        }
+        if(i > 9) {
+            b[9].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    getCalender g = new getCalender();
+                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
+                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+
+                    frame.setStartTime(temp.start);
+                    frame.setEndTime(temp.end);
+                    frame.setScheduleText("附近的景點");
+                    frame.setType("娛樂");
+                    jFrame.setVisible(false);
+                }
+            });
+        }
 
         JLabel labe11 = new JLabel("空閒時間:");
         labe11.setBounds(20,65,200,25);
-        labe11.setFont(new Font("", Font.BOLD, 16));
+        labe11.setFont(new Font("", Font.BOLD, 20));
         jFrame.add(labe11);
 
-        JLabel labe2 = new JLabel("1.看電影");
-        labe2.setBounds(20,120,200,25);
-        labe2.setFont(new Font("", Font.BOLD, 22));
-        jFrame.add(labe2);
-
-        JButton addfreetime1 = new JButton("排入行程");
-        addfreetime1.setBounds(180,120,100,25);
-        jFrame.add(addfreetime1);
-
-        //這樣寫就可以偵測這顆按鈕
-        addfreetime1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //因為時間前面就設定了
-                //這顆按鈕只要設定標題
-                frame.setScheduleText("/*打你要加的標題*/");
-            }
-        });
-
-
-
-        JLabel labe3 = new JLabel("2.逛街");
-        labe3.setBounds(20,160,200,25);
-        labe3.setFont(new Font("", Font.BOLD, 22));
-        jFrame.add(labe3);
-
-        JButton addfreetime2 = new JButton("排入行程");
-        addfreetime2.setBounds(180,160,100,25);
-        jFrame.add(addfreetime2);
-
-        JLabel labe4 = new JLabel("3.附近的景點");
-        labe4.setBounds(20,200,200,25);
-        labe4.setFont(new Font("", Font.BOLD, 22));
-        jFrame.add(labe4);
-
-        JButton addfreetime3 = new JButton("排入行程");
-        addfreetime3.setBounds(180,200,100,25);
-        jFrame.add(addfreetime3);
-
-        JLabel labe5 = new JLabel("4.小睡");
-        labe5.setBounds(20,240,200,25);
-        labe5.setFont(new Font("", Font.BOLD, 22));
-        jFrame.add(labe5);
-
-        JButton addfreetime4 = new JButton("排入行程");
-        addfreetime4.setBounds(180,240,100,25);
-        jFrame.add(addfreetime4);
-
-        JLabel labe6 = new JLabel("5.吃美食");
-        labe6.setBounds(20,280,200,25);
-        labe6.setFont(new Font("", Font.BOLD, 22));
-        jFrame.add(labe6);
-
-        JButton addfreetime5 = new JButton("排入行程");
-        addfreetime5.setBounds(180,280,100,25);
-        jFrame.add(addfreetime5);
 
         jFrame.setVisible(true);
     }

@@ -14,7 +14,9 @@ public class temp implements ActionListener {
     public temp(JFrame jFrame){
         this.jFrame = jFrame;
     }
-
+    public static int freetimes;
+    public static String start;
+    public static String end;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -111,29 +113,36 @@ public class temp implements ActionListener {
         confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
                 String a = timeEHCombobox.getSelectedItem().toString();//這個可以取得時間只是他是String 所以記得轉成int 才可以算
                 int b = Integer.parseInt(a);//這樣就是int了
 
-                //frame.setScheduleDateTime();//設定日期 可是我的一定要有日期 所以我這邊幫你用當下日期
-                String Date = Integer.toString(Calendar.DATE);
-                String Month = Integer.toString(Calendar.MONTH);
-                String Year = Integer.toString(Calendar.YEAR);
+                String c = timeEMCombobox.getSelectedItem().toString();//這個可以取得時間只是他是String 所以記得轉成int 才可以算
+                int d = Integer.parseInt(c);//這樣就是int了
 
-                String CAL = Year + Month + Date;
-                frame.setScheduleDateTime(Integer.parseInt(CAL));//這是設定日期 你不要改
+                String e1 = timeHCombobox.getSelectedItem().toString();//這個可以取得時間只是他是String 所以記得轉成int 才可以算
+                int f = Integer.parseInt(e1);//這樣就是int了
 
-                //你要做的是把選的時間取出來 就是第一行那個然後傳到你的freetime 可以寫static 就可以從freetime 呼叫
+                String g = timeMCombobox.getSelectedItem().toString();//這個可以取得時間只是他是String 所以記得轉成int 才可以算
+                int h = Integer.parseInt(g);//這樣就是int了
 
+                if (b < 10){
+                    a = "0"+b;
+                }
+                if (d < 10){
+                    c = "0"+d;
+                }
+                if (f < 10){
+                    e1 = "0"+f;
+                }
+                if (h < 10){
+                   g = "0"+h;
+                }
+                start = e1+g;
+                end = a+c;
 
-                //可以把第一格+第二格 就是開始時間
-                frame.setStartTime("/*這裏面放開始時間*/");//存進去的時候要是String 如果可以最好把1這種得改成01 因為前面有轉成int要自己寫if加上去 我的class有寫
-               //結束時間一樣的方法
-                frame.setEndTime("/*這裏面放結束時間*/");
-                frame.setType("娛樂");//設定類型
+                freetimes = (b*60+d)-(f*60+h);
 
-
-
+                System.out.println(freetimes);
 
                 freetime.print();
             }
