@@ -11,8 +11,12 @@ import javax.swing.JOptionPane;
 
 public class type implements ActionListener {
     private JFrame jFrame;
-    public type(JFrame jFrame){
-        this.jFrame = jFrame;
+    private JFrame jFrame3;
+
+    public type(JFrame jFrame,JFrame jframe2){
+        this.jFrame = jframe2; //第二頁
+        this.jFrame3 = jFrame;//原本的第一頁
+
     }
 
     @Override
@@ -40,7 +44,13 @@ public class type implements ActionListener {
         btn.setBounds(20,10,60,30);
         jframe2.add(btn);
 
-        btn.addActionListener(new setOnlineExpert(jframe2));//跟主頁傳過來的方法一樣
+        btn.addActionListener(new setOnlineExpert(jFrame3));//47~53都要 這裡的jFrame3是原本的第一頁
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jframe2.dispose();
+            }
+        });
 
 
 

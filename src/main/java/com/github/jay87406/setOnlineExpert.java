@@ -8,14 +8,20 @@ import java.awt.event.ActionListener;
 
 public class setOnlineExpert implements ActionListener {
     private JFrame jFrame;
+
     public setOnlineExpert(JFrame jFrame){
         this.jFrame = jFrame;
     }
 
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
         /*隱藏前一頁*/
+
         jFrame.setVisible(false);
+
+
 
         /*設$此頁*/
         JFrame jframe2 = new JFrame();//新增物件
@@ -50,7 +56,7 @@ public class setOnlineExpert implements ActionListener {
 
         btn1.addActionListener(new voice(jframe2));
         //setOnlineExpert.setVisible(true);
-        btn2.addActionListener(new type(jframe2));
+        btn2.addActionListener(new type(jFrame,jframe2));
 
 
 
