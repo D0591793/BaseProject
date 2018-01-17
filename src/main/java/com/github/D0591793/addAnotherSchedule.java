@@ -273,15 +273,15 @@ public class addAnotherSchedule implements ActionListener{
                         notice.setLocationRelativeTo(null);
                         notice.getContentPane().setBackground(Color.WHITE);
                         notice.setLayout(null);
-                        JLabel label = new JLabel("重複時間,是否要取消此行程?");
+                        JLabel label = new JLabel("重複時間,仍要參加此行程?");
                         label.setBounds(10, 0, 200, 20);
                         label.setFont(new Font("", Font.BOLD, 14));
                         notice.add(label);
                         notice.setVisible(true);
 
 
-                        JButton btn6 = new JButton("是");
-                        btn6.setBounds(20,30,60,20);
+                        JButton btn6 = new JButton("取消");
+                        btn6.setBounds(90,30,60,20);
                         notice.add(btn6);
                         btn6.addActionListener(new ActionListener() {
                             @Override
@@ -290,8 +290,8 @@ public class addAnotherSchedule implements ActionListener{
                             }
                         });
 
-                        JButton btn7 = new JButton("否");
-                        btn7.setBounds(90,30,60,20);
+                        JButton btn7 = new JButton("確定");
+                        btn7.setBounds(20,30,60,20);
                         notice.add(btn7);
                         btn7.addActionListener(new ActionListener() {
                             @Override
