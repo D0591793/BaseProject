@@ -101,9 +101,8 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    //frame.setScheduleDateTime(Integer.parseInt(CAL));
-                    frame.setScheduleDateTime(20180101);
+
+                    frame.setScheduleDateTime(g.getAllDate());
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
 
