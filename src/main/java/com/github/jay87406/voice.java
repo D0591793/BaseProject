@@ -6,9 +6,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class setOnlineExpert implements ActionListener {
+public class voice implements ActionListener {
     private JFrame jFrame;
-    public setOnlineExpert(JFrame jFrame){
+    public voice(JFrame jFrame){
         this.jFrame = jFrame;
     }
 
@@ -25,7 +25,7 @@ public class setOnlineExpert implements ActionListener {
         jframe2.setLayout(null);//用座標排版
 
         /*set Label*/
-        JLabel label = new JLabel("在線專家");//標題
+        JLabel label = new JLabel("語音電話");//標題
         label.setBounds(105,0,200,50);//座標 長寬
         label.setFont(new Font("", Font.BOLD, 20));//字型
         jframe2.add(label);//加入畫面中
@@ -40,18 +40,15 @@ public class setOnlineExpert implements ActionListener {
         btn.addActionListener(new frame(jFrame,jframe2));//跟主頁傳過來的方法一樣
 
 
-        JButton btn1 = new JButton("語音提問");
-        btn1.setBounds(60,200,250,40);
-        jframe2.add(btn1);
 
-        JButton btn2 = new JButton("線上問答");
-        btn2.setBounds(60,350,250,40);
-        jframe2.add(btn2);
-
-        btn1.addActionListener(new voice(jframe2));
-        //setOnlineExpert.setVisible(true);
-        btn2.addActionListener(new type(jframe2));
-
+        JLabel label1 = new JLabel("語音電話");
+        label1.setBounds(125,150,150,50);
+        label1.setFont(new Font("",Font.BOLD,30));
+        JLabel label2 = new JLabel("0800-XXX-XXX");
+        label2.setBounds(110,300,250,80);
+        label2.setFont(new Font("",Font.BOLD,24));
+        jframe2.add(label1);
+        jframe2.add(label2);
 
 
 

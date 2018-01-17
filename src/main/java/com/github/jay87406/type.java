@@ -1,14 +1,17 @@
 package com.github.jay87406;
 
 import com.github.team.frame;
+import com.github.ych861031.printSchedule;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
-public class setOnlineExpert implements ActionListener {
+public class type implements ActionListener {
     private JFrame jFrame;
-    public setOnlineExpert(JFrame jFrame){
+    public type(JFrame jFrame){
         this.jFrame = jFrame;
     }
 
@@ -25,7 +28,7 @@ public class setOnlineExpert implements ActionListener {
         jframe2.setLayout(null);//用座標排版
 
         /*set Label*/
-        JLabel label = new JLabel("在線專家");//標題
+        JLabel label = new JLabel("線上問答");//標題
         label.setBounds(105,0,200,50);//座標 長寬
         label.setFont(new Font("", Font.BOLD, 20));//字型
         jframe2.add(label);//加入畫面中
@@ -37,22 +40,36 @@ public class setOnlineExpert implements ActionListener {
         btn.setBounds(20,10,60,30);
         jframe2.add(btn);
 
-        btn.addActionListener(new frame(jFrame,jframe2));//跟主頁傳過來的方法一樣
+        btn.addActionListener(new setOnlineExpert(jframe2));//跟主頁傳過來的方法一樣
 
 
-        JButton btn1 = new JButton("語音提問");
-        btn1.setBounds(60,200,250,40);
-        jframe2.add(btn1);
-
-        JButton btn2 = new JButton("線上問答");
-        btn2.setBounds(60,350,250,40);
-        jframe2.add(btn2);
-
-        btn1.addActionListener(new voice(jframe2));
-        //setOnlineExpert.setVisible(true);
-        btn2.addActionListener(new type(jframe2));
 
 
+
+        //這個只是示範
+        JButton delete = new JButton("delete");
+        delete.setBounds(260,10,80,30);
+        jframe2.add(delete);
+
+        //下面是偵測這顆按鈕 他要做的事要在裡面寫
+        delete.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //這裡
+            }
+        });
+
+        JTextField jTextField = new JTextField();
+        jTextField.setBounds(60,520,180,24);
+        jframe2.add(jTextField);
+
+        JButton confirm = new JButton("確認");
+        confirm.setBounds(245,520,60,24);
+        jframe2.add(confirm);
+        int index = 0;
+
+
+        // String input=JOptionPane.showInputDialog(null,"請輸入:","輸入對話框",JOptionPane.QUESTION_MESSAGE);
 
 
         jframe2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//案關閉全部關掉
