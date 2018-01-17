@@ -40,7 +40,18 @@ public class freetime {
 
         int i =0;
         String[] array = new String[10];
-        if(temp.freetimes < 10)
+        if(temp.freetimes <= 0)
+        {
+            JLabel labe23 = new JLabel("時間設置錯誤!");
+            labe23.setBounds(90,110,200,35);
+            labe23.setFont(new Font("",Font.BOLD,20));
+            jFrame.add(labe23);
+
+
+
+        }
+
+        if(temp.freetimes < 10 && temp.freetimes > 0)
         {
             JLabel labe21 = new JLabel("你的時間太少了啦!");
             labe21.setBounds(90,110,200,35);
@@ -120,8 +131,8 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
+
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
@@ -138,8 +149,7 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
@@ -156,8 +166,7 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
@@ -174,8 +183,7 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
@@ -192,8 +200,8 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
+
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
@@ -209,8 +217,7 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
@@ -226,8 +233,7 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
@@ -243,8 +249,7 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
@@ -260,8 +265,7 @@ public class freetime {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
-                    String CAL = Integer.toString(g.getyear()) + Integer.toString(g.getmonth()) + Integer.toString(g.getdate());
-                    frame.setScheduleDateTime(Integer.parseInt(CAL));
+                    frame.setScheduleDateTime(g.getAllDate());
 
                     frame.setStartTime(temp.start);
                     frame.setEndTime(temp.end);
