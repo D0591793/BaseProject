@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class settime {
-    private static Calendar alarmCal;
+    public static Calendar alarmCal;
     private static JLabel labelNextAlarm = new JLabel();
     private static boolean timeReached = true;
     private static SimpleDateFormat df = new SimpleDateFormat("HH:mm");
@@ -52,9 +52,6 @@ public class settime {
             }
         });
 
-        JButton btnCancel = new JButton("取消");
-        btnCancel.setBounds(140,200,110,30);
-        jFrame.add(btnCancel);
 
         JButton btnOk = new JButton("確認");
         btnOk.setBounds(250,200,110,30);
@@ -69,21 +66,26 @@ public class settime {
                 min = Integer.parseInt(textMin.getText());
 
                 startTimer(hour,min);
-
+                test.endTime(temp);
                 jFrame.setVisible(false);
+                notice.initTimer();
+
             }
         });
+
         labelNextAlarm.setBounds(20,360,60,30);
         jFrame.add(labelNextAlarm);
 
 
     }
+    public static String temp = new String();
     public static void startTimer(int hour, int minute) {
         alarmCal = Calendar.getInstance();
         alarmCal.set(Calendar.HOUR_OF_DAY, hour);
         alarmCal.set(Calendar.MINUTE, minute);
+        alarmCal.set(Calendar.SECOND, 0);
         labelNextAlarm.setText("下次闹钟时间：" + df.format(alarmCal.getTime()));
         timeReached = false;
-
+        temp = String.valueOf(alarmCal.getTime());
     }
 }

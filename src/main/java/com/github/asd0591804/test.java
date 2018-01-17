@@ -2,21 +2,31 @@ package com.github.asd0591804;
 
 import com.github.team.frame;
 
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.TimerTask;
 
 public class test implements ActionListener {
+    public static int index = 0;
     private JFrame jFrame;
-    public test(JFrame jFrame){
+    public static String[] array = new String[10];
+
+    private Clip clip;
+
+    private boolean timeReached = true;
+    static TimerTask timer;
+    public test(JFrame jFrame) {
         this.jFrame = jFrame;
     }
 
     /*時間刷新*/
-    private void setTimer(JLabel time){
+    private void setTimer(JLabel time) {
         final JLabel varTime = time;
         Timer timeAction = new Timer(1000, new ActionListener() {
 
@@ -36,14 +46,14 @@ public class test implements ActionListener {
 
         /*設$此頁*/
         JFrame jframe2 = new JFrame();//新增物件
-        jframe2.setSize(375,640);//大小
+        jframe2.setSize(375, 640);//大小
         jframe2.setLocation(jFrame.getLocation());//取得前一頁位置
         jframe2.getContentPane().setBackground(Color.white);//背景顏色
         jframe2.setLayout(null);//用座標排版
 
         /*set Label*/
         JLabel label = new JLabel("鬧鐘");//標題
-        label.setBounds(135,0,200,50);//座標 長寬
+        label.setBounds(135, 0, 200, 50);//座標 長寬
         label.setFont(new Font("", Font.BOLD, 20));//字型
         jframe2.add(label);//加入畫面中
 
@@ -51,25 +61,25 @@ public class test implements ActionListener {
 
         /*set button*/
         JButton btn = new JButton("back");//按鈕物件
-        btn.setBounds(20,10,80,30);
+        btn.setBounds(20, 10, 80, 30);
         jframe2.add(btn);
 
-        btn.addActionListener(new frame(jFrame,jframe2));//跟主頁傳過來的方法一樣
+        btn.addActionListener(new frame(jFrame, jframe2));//跟主頁傳過來的方法一樣
 
         JLabel now = new JLabel("現在時間:");
-        now.setBounds(50,30,100,50);
+        now.setBounds(50, 30, 100, 50);
         now.setFont(new Font("", Font.BOLD, 18));
         jframe2.add(now);
 
         JLabel timelabel = new JLabel();//時間
-        timelabel.setBounds(135,30,250,50);//座標 長寬
+        timelabel.setBounds(135, 30, 250, 50);//座標 長寬
         timelabel.setFont(new Font("", Font.BOLD, 18));//字型
         jframe2.add(timelabel);
         this.setTimer(timelabel);
 
 
         JButton settime = new JButton("設置");
-        settime.setBounds(135,80,80,30);
+        settime.setBounds(135, 80, 80, 30);
         jframe2.add(settime);
         settime.addActionListener(new ActionListener() {
             @Override
@@ -79,14 +89,20 @@ public class test implements ActionListener {
 
             }
         });
-
-
+        for (int temp = 0; temp < array.length; temp++) {
+            if (array[temp] != "0") {
+                JLabel emdtime = new JLabel(array[temp]);
+                emdtime.setBounds(50, 250 + temp * 20, 250, 30);
+                jframe2.add(emdtime);
+            }
+        }
 
 
         //這個只是示範
         JButton delete = new JButton("delete");
-        delete.setBounds(260,10,80,30);
+        delete.setBounds(260, 10, 80, 30);
         jframe2.add(delete);
+
 
         //下面是偵測這顆按鈕 他要做的事要在裡面寫
         delete.addActionListener(new ActionListener() {
@@ -102,5 +118,17 @@ public class test implements ActionListener {
         jframe2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//案關閉全部關掉
 
         jframe2.setVisible(true);//讓此頁顯示
+
     }
-}
+
+    public static void endTime(String time) {
+        index = index + 1;
+        array[index] = time;
+        System.out.println(array[index]);
+    }
+
+
+
+
+
+    }
