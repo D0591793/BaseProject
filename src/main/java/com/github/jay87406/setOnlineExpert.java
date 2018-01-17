@@ -54,7 +54,7 @@ public class setOnlineExpert implements ActionListener {
         btn2.setBounds(60,350,250,40);
         jframe2.add(btn2);
 
-        btn1.addActionListener(new voice(jframe2));
+        btn1.addActionListener(new voice(jFrame,jframe2));
         //setOnlineExpert.setVisible(true);
         btn2.addActionListener(new type(jFrame,jframe2));
 

@@ -8,8 +8,12 @@ import java.awt.event.ActionListener;
 
 public class voice implements ActionListener {
     private JFrame jFrame;
-    public voice(JFrame jFrame){
-        this.jFrame = jFrame;
+    private JFrame jFrame3;
+
+    public voice(JFrame jFrame,JFrame jframe2){
+        this.jFrame = jframe2; //第二頁
+        this.jFrame3 = jFrame;//原本的第一頁
+
     }
 
     @Override
@@ -37,9 +41,13 @@ public class voice implements ActionListener {
         btn.setBounds(20,10,60,30);
         jframe2.add(btn);
 
-        btn.addActionListener(new frame(jFrame,jframe2));//跟主頁傳過來的方法一樣
-
-
+        btn.addActionListener(new setOnlineExpert(jFrame3));//47~53都要 這裡的jFrame3是原本的第一頁
+        btn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                jframe2.dispose();
+            }
+        });
 
         JLabel label1 = new JLabel("語音電話");
         label1.setBounds(125,150,150,50);

@@ -13,6 +13,9 @@ public class type implements ActionListener {
     private JFrame jFrame;
     private JFrame jFrame3;
 
+    JTextField confirm = new JTextField("0");
+    JTextField txtArea = new JTextField();
+
     public type(JFrame jFrame,JFrame jframe2){
         this.jFrame = jframe2; //第二頁
         this.jFrame3 = jFrame;//原本的第一頁
@@ -36,7 +39,6 @@ public class type implements ActionListener {
         label.setBounds(105,0,200,50);//座標 長寬
         label.setFont(new Font("", Font.BOLD, 20));//字型
         jframe2.add(label);//加入畫面中
-
 
 
         /*set button*/
@@ -69,6 +71,8 @@ public class type implements ActionListener {
             }
         });
 
+
+
         JTextField jTextField = new JTextField();
         jTextField.setBounds(60,520,180,24);
         jframe2.add(jTextField);
@@ -77,6 +81,27 @@ public class type implements ActionListener {
         confirm.setBounds(245,520,60,24);
         jframe2.add(confirm);
         int index = 0;
+
+        confirm.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //這裡
+               /*String area;
+                area = jTextField.getText(); //獲取值
+                String stArea = String.valueOf(area);
+                txtArea.setText("獲取值為： " + stArea );*/
+                String a = jTextField.getText();
+                JLabel jLabel1 = new JLabel(a);
+                jLabel1.setBounds(30,50,80,20);
+                jLabel1.setFont(new Font("",Font.BOLD,14));
+                jframe2.add(jLabel1);
+
+               /* JLabel labe3 = confirm.setText();
+                labe3.setBounds(30,50,80,20);//座標 長寬
+                labe3.setFont(new Font("", Font.BOLD, 14));//字型
+                jframe2.add(labe3);//加入畫面中*/
+            }
+        });
 
 
         // String input=JOptionPane.showInputDialog(null,"請輸入:","輸入對話框",JOptionPane.QUESTION_MESSAGE);
