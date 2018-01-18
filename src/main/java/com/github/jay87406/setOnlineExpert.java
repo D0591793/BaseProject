@@ -56,7 +56,15 @@ public class setOnlineExpert implements ActionListener {
 
         btn1.addActionListener(new voice(jFrame,jframe2));
         //setOnlineExpert.setVisible(true);
-        btn2.addActionListener(new type(jFrame,jframe2));
+        //btn2.addActionListener(new type(jFrame,jframe2));
+        btn2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //這裡
+                String input=JOptionPane.showInputDialog(null,"請輸入問題:","輸入對話框",JOptionPane.QUESTION_MESSAGE);
+            }
+        });
+
 
 
 
