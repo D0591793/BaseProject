@@ -35,7 +35,6 @@ public class voice implements ActionListener {
         jframe2.add(label);//加入畫面中
 
 
-
         /*set button*/
         JButton btn = new JButton("返回");//按鈕物件
         btn.setBounds(20,10,60,30);
@@ -57,6 +56,17 @@ public class voice implements ActionListener {
         label2.setFont(new Font("",Font.BOLD,24));
         jframe2.add(label1);
         jframe2.add(label2);
+        JButton exit = new JButton("是否忙碌");
+        exit.setBounds(245,520,90,24);
+        jframe2.add(exit);
+        exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //這裡
+                JOptionPane.showMessageDialog(null,"專家忙碌中");
+            }
+        });
+
 
 
 

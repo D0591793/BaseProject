@@ -57,7 +57,7 @@ public class type implements ActionListener {
 
 
 
-
+/*
         //這個只是示範
         JButton delete = new JButton("delete");
         delete.setBounds(260,10,80,30);
@@ -68,29 +68,37 @@ public class type implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //這裡
+              //
+                //  String input=JOptionPane.showInputDialog(null,"請輸入:","輸入對話框",JOptionPane.QUESTION_MESSAGE);
+                String input=JOptionPane.showInputDialog("請輸入姓名");
+                JOptionPane.showMessageDialog(null,"您輸入的是 : " + input);
             }
-        });
+        });*/
 
 
 
         JTextField jTextField = new JTextField();
-        jTextField.setBounds(60,520,180,24);
+        jTextField.setBounds(60,60,240,440);
         jframe2.add(jTextField);
 
-        JButton confirm = new JButton("確認");
-        confirm.setBounds(245,520,60,24);
+        JButton confirm = new JButton("開始提問");
+        confirm.setBounds(135,520,110,28);
         jframe2.add(confirm);
         int index = 0;
 
         confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String input=JOptionPane.showInputDialog("請輸入問題");
+                JOptionPane.showMessageDialog(null,"所提出問題: " + input);
+                JOptionPane.showMessageDialog(null,"問題已發送請等待回應");
+
                 //這裡
                /*String area;
                 area = jTextField.getText(); //獲取值
                 String stArea = String.valueOf(area);
                 txtArea.setText("獲取值為： " + stArea );*/
-                String a = jTextField.getText();
+                /*String a = jTextField.getText();
                 JLabel jLabel1 = new JLabel(a);
                 jLabel1.setBounds(30,50,80,20);
                 jLabel1.setFont(new Font("",Font.BOLD,14));
