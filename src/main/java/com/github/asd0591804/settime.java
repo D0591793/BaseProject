@@ -9,9 +9,6 @@ import java.util.Calendar;
 
 public class settime {
     public static Calendar alarmCal;
-    private static JLabel labelNextAlarm = new JLabel();
-    private static boolean timeReached = true;
-    private static SimpleDateFormat df = new SimpleDateFormat("HH:mm");
 
     public static void timesetting (){
         JFrame jFrame = new JFrame();
@@ -33,12 +30,10 @@ public class settime {
         jFrame.add(labelMin);
 
         JTextField textHour = new JTextField();
-//        textHour.addKeyListener(this);//只能輸入數字
         textHour.setBounds(40,150,120,30);
         jFrame.add(textHour);
 
         JTextField textMin = new JTextField();
-//        textMin.addKeyListener(this);//只能輸入數字
         textMin.setBounds(200,150,120,30);
         jFrame.add(textMin);
 
@@ -54,7 +49,7 @@ public class settime {
 
 
         JButton btnOk = new JButton("確認");
-        btnOk.setBounds(250,200,110,30);
+        btnOk.setBounds(220,200,110,30);
         jFrame.add(btnOk);
 
         btnOk.addActionListener(new ActionListener() {
@@ -66,26 +61,24 @@ public class settime {
                 min = Integer.parseInt(textMin.getText());
 
                 startTimer(hour,min);
-                test.endTime(temp);
+                test.endTime(temp);//傳時間過去存陣列
                 jFrame.setVisible(false);
                 notice.initTimer();
 
             }
         });
 
-        labelNextAlarm.setBounds(20,360,60,30);
-        jFrame.add(labelNextAlarm);
+
 
 
     }
     public static String temp = new String();
     public static void startTimer(int hour, int minute) {
+        System.out.println("開始");
         alarmCal = Calendar.getInstance();
         alarmCal.set(Calendar.HOUR_OF_DAY, hour);
         alarmCal.set(Calendar.MINUTE, minute);
         alarmCal.set(Calendar.SECOND, 0);
-        labelNextAlarm.setText("下次闹钟时间：" + df.format(alarmCal.getTime()));
-        timeReached = false;
         temp = String.valueOf(alarmCal.getTime());
     }
 }

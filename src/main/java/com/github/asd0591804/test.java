@@ -60,7 +60,7 @@ public class test implements ActionListener {
 
 
         /*set button*/
-        JButton btn = new JButton("back");//按鈕物件
+        JButton btn = new JButton("返回");//按鈕物件
         btn.setBounds(20, 10, 80, 30);
         jframe2.add(btn);
 
@@ -79,7 +79,7 @@ public class test implements ActionListener {
 
 
         JButton settime = new JButton("設置");
-        settime.setBounds(135, 80, 80, 30);
+        settime.setBounds(50, 100, 80, 30);
         jframe2.add(settime);
         settime.addActionListener(new ActionListener() {
             @Override
@@ -89,30 +89,18 @@ public class test implements ActionListener {
 
             }
         });
-        for (int temp = 0; temp < array.length; temp++) {
-            if (array[temp] != "0") {
-                JLabel emdtime = new JLabel(array[temp]);
-                emdtime.setBounds(50, 250 + temp * 20, 250, 30);
-                jframe2.add(emdtime);
-            }
-        }
 
 
-        //這個只是示範
-        JButton delete = new JButton("delete");
-        delete.setBounds(260, 10, 80, 30);
-        jframe2.add(delete);
+        JButton list = new JButton("鬧鐘列表");
+        list.setBounds(175, 100, 120, 30);
+        jframe2.add(list);
 
-
-        //下面是偵測這顆按鈕 他要做的事要在裡面寫
-        delete.addActionListener(new ActionListener() {
+        list.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //這裡
+                com.github.asd0591804.list.printfList(array);
             }
         });
-
-
 
 
         jframe2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//案關閉全部關掉
@@ -121,7 +109,7 @@ public class test implements ActionListener {
 
     }
 
-    public static void endTime(String time) {
+    public static void endTime(String time) {//抓取設定的時間存入陣列，印出用
         index = index + 1;
         array[index] = time;
         System.out.println(array[index]);
