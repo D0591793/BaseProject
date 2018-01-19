@@ -18,10 +18,11 @@ public class test implements ActionListener {
     public static String[] array = new String[10];
 
     private Clip clip;
-
     private boolean timeReached = true;
     static TimerTask timer;
+
     public test(JFrame jFrame) {
+
         this.jFrame = jFrame;
     }
 
@@ -98,7 +99,8 @@ public class test implements ActionListener {
         list.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                com.github.asd0591804.list.printfList(array);
+
+                com.github.asd0591804.list.printfList(com.github.asd0591804.settime.arrayAlarm);
             }
         });
 
