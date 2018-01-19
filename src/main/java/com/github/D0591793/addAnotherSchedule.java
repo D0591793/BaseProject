@@ -42,7 +42,7 @@ public class addAnotherSchedule implements ActionListener{
         JLabel label6 = new JLabel(":");
         JLabel label7 = new JLabel("標題");
 
-        label1.setBounds(10,87,40,40);
+        label1.setBounds(20,87,40,40);
         label1.setFont(new Font("",Font.BOLD,14));
         jframe2.add(label1);
         label4.setBounds(20,127,40,40);
