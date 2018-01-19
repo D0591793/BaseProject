@@ -17,6 +17,9 @@ public class frame implements ActionListener {
     private static JFrame jframe2;
     public static int index = 0;
 
+    public static String talk[];
+    public static int ansIndex=-1;
+
     public frame(JFrame jframe,JFrame jframe2) {
         this.jframe = jframe;
         this.jframe2 = jframe2;
@@ -203,6 +206,12 @@ public class frame implements ActionListener {
         timeArray[++index] = -1;
 
     }
+
+
+
+
+
+
 
     public int covergeTest(int a){
         return 1;

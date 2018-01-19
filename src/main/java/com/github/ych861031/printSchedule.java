@@ -110,15 +110,18 @@ public class printSchedule {
                     public void actionPerformed(ActionEvent e) {
                         jFrame1.setVisible(false);
                         jFrame.setVisible(false);
-
-                        for (int i=Integer.parseInt(a.getText())-1;i<frame.index;i++){
-                            frame.timeArray[i] = frame.timeArray[i+1];
-                            frame.timeSArray[i] = frame.timeSArray[i+1];
-                            frame.timeEArray[i] = frame.timeEArray[i+1];
-                            frame.textArray[i] = frame.textArray[i+1];
-                            frame.typeArray[i] = frame.typeArray[i+1];
+                        if (Integer.parseInt(a.getText())-1<frame.index && Integer.parseInt(a.getText())-1>=0){
+                            for (int i=Integer.parseInt(a.getText())-1;i<frame.index;i++){
+                                frame.timeArray[i] = frame.timeArray[i+1];
+                                frame.timeSArray[i] = frame.timeSArray[i+1];
+                                frame.timeEArray[i] = frame.timeEArray[i+1];
+                                frame.textArray[i] = frame.textArray[i+1];
+                                frame.typeArray[i] = frame.typeArray[i+1];
+                            }
+                            frame.index--;
                         }
-                        frame.index--;
+
+
 
 
 

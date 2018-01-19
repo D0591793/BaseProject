@@ -13,6 +13,7 @@ public class type implements ActionListener {
     private JFrame jFrame;
     private JFrame jFrame3;
 
+    public static int index = 0;
     JTextField confirm = new JTextField("0");
     JTextField txtArea = new JTextField();
 
@@ -36,7 +37,7 @@ public class type implements ActionListener {
 
         /*set Label*/
         JLabel label = new JLabel("線上問答");//標題
-        label.setBounds(105,0,200,50);//座標 長寬
+        label.setBounds(130,0,200,50);//座標 長寬
         label.setFont(new Font("", Font.BOLD, 20));//字型
         jframe2.add(label);//加入畫面中
 
@@ -50,6 +51,7 @@ public class type implements ActionListener {
         btn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                frame.ansIndex=-1;
                 jframe2.dispose();
             }
         });
@@ -77,21 +79,56 @@ public class type implements ActionListener {
 
 
 
-        JTextField jTextField = new JTextField();
-        jTextField.setBounds(60,60,240,440);
-        jframe2.add(jTextField);
+//        JTextField jTextField = new JTextField();
+//        jTextField.setBounds(60,60,240,440);
+//        jframe2.add(jTextField);
 
         JButton confirm = new JButton("開始提問");
         confirm.setBounds(135,520,110,28);
         jframe2.add(confirm);
-        int index = 0;
+
+
+        JLabel jLabel= new JLabel("本次提問紀錄");
+        jLabel.setBounds(50,30,100,40);
+        jLabel.setFont(new Font("",Font.BOLD,14));
+        jframe2.add(jLabel);
+
+
+
+
+
+
+
+
+        JLabel[] jLabels = new JLabel[24];
+        for (int i=0;i<24;i++ ){
+
+            jLabels[i] = new JLabel();
+            jLabels[i].setFont(new Font("",Font.BOLD,14));
+            jLabels[i].setBounds(50,i*15+60,100,20);
+            jLabels[i].setForeground(Color.WHITE);
+            jframe2.add(jLabels[i]);
+
+
+
+        }
+
+
 
         confirm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ++frame.ansIndex;
                 String input=JOptionPane.showInputDialog("請輸入問題");
                 JOptionPane.showMessageDialog(null,"所提出問題: " + input);
                 JOptionPane.showMessageDialog(null,"問題已發送請等待回應");
+
+
+
+                jLabels[frame.ansIndex].setForeground(Color.BLACK);
+                jLabels[frame.ansIndex].setText(input);
+
+
 
                 //這裡
                /*String area;
