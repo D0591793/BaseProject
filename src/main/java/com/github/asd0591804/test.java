@@ -111,11 +111,7 @@ public class test implements ActionListener {
 
     }
 
-    public static void endTime(String time) {//抓取設定的時間存入陣列，印出用
-        index = index + 1;
-        array[index] = time;
-        System.out.println(array[index]);
-    }
+
 
 
 

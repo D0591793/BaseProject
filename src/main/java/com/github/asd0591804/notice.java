@@ -40,7 +40,7 @@ public class notice {
                         timeReached = true;
                     }
 
-                    System.out.println("Time over array[0]");
+                    System.out.println("Time over ");
                     startAlarm();
                 }
             }

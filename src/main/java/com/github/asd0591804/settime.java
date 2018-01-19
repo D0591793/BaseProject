@@ -76,7 +76,6 @@ public class settime {
                 System.out.println(thing);
 
                 setTimeArray(hour,min,thing);
-                test.endTime(temp);//傳時間過去存陣列
                 jFrame.setVisible(false);
                 notice.initTimer();
 
