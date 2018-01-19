@@ -69,7 +69,6 @@ public class addAnotherSchedule implements ActionListener{
 
         btn.addActionListener(new frame(jFrame,jframe2));
         getCalender calender = new getCalender();
-        //跟主頁傳過來的方法一樣
 
 
 
@@ -339,9 +338,6 @@ public class addAnotherSchedule implements ActionListener{
                     notice.add(jLabel4);
                     notice.add(jLabel5);
 
-
-                    JButton btn = new JButton("顯示最終顯示最終行程表");
-                    btn.setBounds(20,50,200,30);
 
 
                     notice.setVisible(true);
