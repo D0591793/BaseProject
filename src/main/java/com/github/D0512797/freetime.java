@@ -1,6 +1,7 @@
 package com.github.D0512797;
 
 import com.github.team.frame;
+import com.github.ych861031.checkSchedule;
 import com.github.ych861031.getCalender;
 import com.github.ych861031.printSchedule;
 
@@ -9,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.concurrent.LinkedBlockingDeque;
 
 public class freetime {
 
@@ -16,7 +18,6 @@ public class freetime {
 
         JFrame jFrame = new JFrame();
         jFrame.setSize(375,640);
-        jFrame.setLocationRelativeTo(null);
         jFrame.getContentPane().setBackground(Color.white);
         jFrame.setLayout(null);
         jFrame.setLocation(0,0);
@@ -31,6 +32,11 @@ public class freetime {
         label3.setBounds(120,53,200,50);
         label3.setFont(new Font("", Font.BOLD, 16));
         jFrame.add(label3);
+
+        JLabel labe11 = new JLabel("空閒時間:");
+        labe11.setBounds(20,65,200,25);
+        labe11.setFont(new Font("", Font.BOLD, 20));
+        jFrame.add(labe11);
 
 
 
@@ -96,6 +102,7 @@ public class freetime {
         JLabel[] a =new JLabel[10];
         JButton[] b =new JButton[10];
 
+
         for (int j=0;j<i;j++){
             a[j] = new JLabel(Integer.toString(j+1)+". "+array[j]);
             a[j].setBounds(20,j*40+160,200,30);
@@ -107,24 +114,35 @@ public class freetime {
             jFrame.add(b[j]);
 
         }
-        if(i > 0) {
-            b[0].addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    getCalender g = new getCalender();
+        if(i > 0) b[0].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                getCalender g = new getCalender();
 
-                    frame.setScheduleDateTime(g.getAllDate());
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+                frame.setScheduleDateTime(g.getAllDate());
 
 
-                    frame.setScheduleText("看一個笑話");
-                    frame.setType("娛樂");
-                    jFrame.setVisible(false);
-
+                frame.setScheduleText("看一個笑話");
+                frame.setType("娛樂");
+                frame.setStartTime(temp.start);
+                boolean check = frame.setEndTime(temp.end);
+                jFrame.setVisible(false);
+                printSchedule.print();
+                if (check == false) {
+                    JFrame jframe3 = new JFrame("Notice");
+                    jframe3.setSize(250,100);
+                    jframe3.setLocationRelativeTo(null);
+                    jframe3.getContentPane().setBackground(Color.WHITE);
+                    jframe3.setLayout(null);
+                    JLabel label = new JLabel("你那段時間沒空喔!");
+                    label.setBounds(50,0,200,40);
+                    label.setFont(new Font("",Font.BOLD,14));
+                    jframe3.add(label);
+                    jframe3.setVisible(true);
                 }
-            });
-        }
+
+            }
+        });
 
         if(i > 1) {
             b[1].addActionListener(new ActionListener() {
@@ -134,11 +152,25 @@ public class freetime {
                     frame.setScheduleDateTime(g.getAllDate());
 
 
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+
                     frame.setScheduleText("放一首新歌");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
 
                 }
             });
@@ -151,11 +183,25 @@ public class freetime {
                     getCalender g = new getCalender();
                     frame.setScheduleDateTime(g.getAllDate());
 
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+
                     frame.setScheduleText("玩小遊戲");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
 
                 }
             });
@@ -168,11 +214,25 @@ public class freetime {
                     getCalender g = new getCalender();
                     frame.setScheduleDateTime(g.getAllDate());
 
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+
                     frame.setScheduleText("播短片");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
 
                 }
             });
@@ -185,11 +245,25 @@ public class freetime {
                     getCalender g = new getCalender();
                     frame.setScheduleDateTime(g.getAllDate());
 
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+
                     frame.setScheduleText("吃美食");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
 
                 }
             });
@@ -203,11 +277,25 @@ public class freetime {
                     frame.setScheduleDateTime(g.getAllDate());
 
 
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+
                     frame.setScheduleText("打籃球");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
 
                 }
             });
@@ -219,11 +307,25 @@ public class freetime {
                     getCalender g = new getCalender();
                     frame.setScheduleDateTime(g.getAllDate());
 
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+
                     frame.setScheduleText("小睡");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
 
                 }
             });
@@ -235,11 +337,25 @@ public class freetime {
                     getCalender g = new getCalender();
                     frame.setScheduleDateTime(g.getAllDate());
 
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+
                     frame.setScheduleText("看電影");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
 
                 }
             });
@@ -251,11 +367,25 @@ public class freetime {
                     getCalender g = new getCalender();
                     frame.setScheduleDateTime(g.getAllDate());
 
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
+
                     frame.setScheduleText("逛街");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
 
                 }
             });
@@ -266,20 +396,30 @@ public class freetime {
                 public void actionPerformed(ActionEvent e) {
                     getCalender g = new getCalender();
                     frame.setScheduleDateTime(g.getAllDate());
-
-                    frame.setStartTime(temp.start);
-                    frame.setEndTime(temp.end);
                     frame.setScheduleText("附近的景點");
                     frame.setType("娛樂");
+                    frame.setStartTime(temp.start);
+                    boolean check = frame.setEndTime(temp.end);
                     jFrame.setVisible(false);
+                    printSchedule.print();
+                    if (check == false) {
+                        JFrame jframe3 = new JFrame("Notice");
+                        jframe3.setSize(250,100);
+                        jframe3.setLocationRelativeTo(null);
+                        jframe3.getContentPane().setBackground(Color.WHITE);
+                        jframe3.setLayout(null);
+                        JLabel label = new JLabel("你那段時間沒空喔!");
+                        label.setBounds(50,0,200,40);
+                        label.setFont(new Font("",Font.BOLD,14));
+                        jframe3.add(label);
+                        jframe3.setVisible(true);
+                    }
+
                 }
             });
         }
 
-        JLabel labe11 = new JLabel("空閒時間:");
-        labe11.setBounds(20,65,200,25);
-        labe11.setFont(new Font("", Font.BOLD, 20));
-        jFrame.add(labe11);
+
 
 
         jFrame.setVisible(true);
