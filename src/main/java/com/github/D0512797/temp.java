@@ -164,13 +164,6 @@ public class temp implements ActionListener {
 
 
 
-
-
-
-
-
-
-
         jframe2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//案關閉全部關掉
 
         jframe2.setVisible(true);//讓此頁顯示
