@@ -15,7 +15,7 @@ import java.util.concurrent.LinkedBlockingDeque;
 public class freetime {
 
     public static void print(){
-//text
+//text1
         JFrame jFrame = new JFrame();
         jFrame.setSize(375,640);
         jFrame.getContentPane().setBackground(Color.white);
